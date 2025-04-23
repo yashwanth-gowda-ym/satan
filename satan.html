@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Portfolio</title>
+  <script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7.22.9/babel.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: #0A0A0A;
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      color: #ffffff;
+    }
+    .hero-bg {
+      background: linear-gradient(90deg, #0A0A0A 0%, #D97706 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1%, transparent 1%);
+      background-size: 20px 20px;
+      opacity: 0.5;
+    }
+    .bg-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 20rem;
+      font-weight: bold;
+      color: rgba(255, 255, 255, 0.1);
+      pointer-events: none;
+      font-family: 'Inter', sans-serif;
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .hover-glow:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(217, 119, 6, 0.5);
+      transition: all 0.3s ease;
+    }
+    .footer-bg {
+      background: linear-gradient(180deg, #0A0A0A 0%, #1A1A1A 50%, #92400E 100%);
+    }
+    .link-hover:hover {
+      color: #D1D5DB;
+      transition: color 0.3s ease;
+    }
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+    .float {
+      animation: float 3s ease-in-out infinite;
+    }
+    h1, h2, h3 {
+      font-family: 'Cinzel', serif; /* Elden Ring-inspired */
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Cinzel:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const App = () => {
+      // Fallback for React load failure
+      if (!window.React) {
+        document.getElementById('root').innerHTML = '<h1 style="color: white; text-align: center; padding: 50px;">Error: Failed to load React. Please check your network and try again.</h1>';
+        return null;
+      }
+
+      // Scroll animation handler
+      React.useEffect(() => {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+
+        document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+        return () => observer.disconnect();
+      }, []);
+
+      return (
+        <div className="min-h-screen">
+          {/* Hero Section */}
+          <section className="min-h-screen flex flex-col hero-bg relative">
+            <nav className="flex justify-between items-center px-6 py-4">
+              <div className="text-2xl font-bold">Portfolio</div>
+              <div className="space-x-6">
+                <a href="#projects" className="text-white hover:text-gray-300">Projects</a>
+                <a href="#about" className="text-white hover:text-gray-300">About</a>
+                <a href="#contact" className="text-white hover:text-gray-300">Contact</a>
+              </div>
+            </nav>
+            <div className="flex flex-col items-center justify-center flex-grow text-center px-4 fade-in">
+              <div className="bg-text">I'M SATAN</div>
+              <img
+                src="comecloser.jpg"
+                alt="Your Photo"
+                className="w-40 h-40 rounded-full mb-6 float"
+              />
+              <h1 className="text-5xl font-bold mb-4">
+                Yashwanth Gowda 911
+              </h1>
+              <p className="text-xl mb-4">
+                DevOps Engineer | Web Developer | Prompt Engineer
+              </p>
+              <p className="text-lg max-w-md mx-auto mb-6">
+                Building the future with Python, C#, and JavaScript. Driven by innovation and a passion for hypercars.
+              </p>
+              <a
+                href="#about"
+                className="px-6 py-3 bg-transparent border border-white text-white rounded-full hover-glow"
+              >
+                Learn More
+              </a>
+            </div>
+          </section>
+
+          {/* About Section */}
+          <section id="about" className="py-16 px-4 fade-in">
+            <div className="max-w-5xl mx-auto">
+              <h2 className="text-4xl font-bold mb-8 text-center">About Me</h2>
+              <div className="grid md:grid-cols-2 gap-8">
+                <div>
+                  <h3 className="text-2xl font-semibold mb-4">Skills & Education</h3>
+                  <p className="text-lg">
+                    Studying DevOps Engineering. Skilled in Python, C#, JavaScript, web development, and prompt engineering. Delivered 11+ projects with a focus on automation and scalable solutions.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="text-2xl font-semibold mb-4">Hobbies & Passions</h3>
+                  <p className="text-lg">
+                    I conquer Elden Ring, excel in cricket and kabaddi, and chase the thrill of sports cars and hypercars. Style matters—I dress sharp and design sharper.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Projects Section */}
+          <section id="projects" className="py-16 px-4 fade-in">
+            <div className="max-w-5xl mx-auto">
+              <h2 className="text-4xl font-bold mb-8 text-center">Projects</h2>
+              <div className="grid md:grid-cols-3 gap-6">
+                {Array.from({ length: 11 }).map((_, i) => (
+                  <div key={i} className="bg-gray-900 p-6 rounded-lg hover-glow">
+                    <h3 className="text-xl font-semibold mb-2">Project {i + 1}</h3>
+                    <p className="mb-4 text-gray-300">
+                      A project showcasing [Python/C#/JS]. (Add your project details and links.)
+                    </p>
+                    <a href="#" className="text-blue-400 hover:underline">View Project</a>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Hackathons Section */}
+          <section className="py-16 px-4 fade-in">
+            <div className="max-w-5xl mx-auto">
+              <h2 className="text-4xl font-bold mb-8 text-center">Hackathons</h2>
+              <div className="space-y-6">
+                {Array.from({ length: 4 }).map((_, i) => (
+                  <div key={i} className="bg-gray-900 p-6 rounded-lg hover-glow">
+                    <h3 className="text-xl font-semibold mb-2">Hackathon {i + 1}</h3>
+                    <p className="text-gray-300">
+                      Innovated under pressure in a hackathon. (Add specific details.)
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Combined Get in Touch and Footer Section */}
+          <footer id="contact" className="footer-bg py-16 px-4 fade-in">
+            <div className="max-w-5xl mx-auto">
+              <h2 className="text-4xl font-bold mb-8 text-center">Get in Touch</h2>
+              <p className="text-lg mb-12 text-center">
+                Let’s collaborate on tech, style, or hypercar dreams!
+              </p>
+              <div className="grid md:grid-cols-3 gap-8">
+                <div>
+                  <h3 className="text-lg font-semibold mb-4 text-gray-400">Contact</h3>
+                  <a href="mailto:your.email@example.com" className="block text-white link-hover">Email</a>
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold mb-4 text-gray-400">Social</h3>
+                  <a href="https://linkedin.com" className="block text-white link-hover">LinkedIn</a>
+                  <a href="https://github.com" className="block text-white link-hover">GitHub</a>
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold mb-4 text-gray-400">Interests</h3>
+                  <p className="text-white">Hypercars | Elden Ring | Cricket</p>
+                </div>
+              </div>
+            </div>
+          </footer>
+        </div>
+      );
+    };
+
+    try {
+      const root = ReactDOM.createRoot(document.getElementById('root'));
+      root.render(<App />);
+    } catch (e) {
+      document.getElementById('root').innerHTML = '<h1 style="color: white; text-align: center; padding: 50px;">Error: Failed to render. Check console for details.</h1>';
+      console.error(e);
+    }
+  </script>
+</body>
+</html>
