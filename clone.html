@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       header{
+        position:sticky;
+        box-shadow: 0 2px 4px;
+
+       }
+       nav{
+        
+        padding: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+       }
+       .heade a {
+        margin-left:4rem;
+       }
+       .main{
+    
+  background-image: url("https://images.unsplash.com/photo-1560448204-e02f11c3d0e2");
+  background-size: cover;         /* Scales image to cover the container */
+  background-position: center;    /* Keeps it centered */
+ /* Prevents image from repeating */
+  height: 60vh;                  /* Full screen height */
+  width: 100%;                    /* Full width */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  position: relative;
+
+}
+.boxes{
+            display: flex;
+            justify-content: space-evenly;
+            padding-top: 1rem;
+        }
+        .box{
+            border: 2px solid black;
+            width: 20%;
+            height:200px;
+            background-color: white;
+        }
+        .box-img{
+            background-image: url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2');
+            background-size: cover;
+            height:180px;
+            width: 100%;
+
+        }
+        .box{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .footer{
+            height: 50px;
+            background-color: black;
+            color: antiquewhite;
+            text-align: center;
+            /* align-items: center; */
+            justify-content: center;
+            padding: 0.8rem;
+        }
+    
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">logo</div>
+
+          <div class="heade">
+            <a href="">home</a>
+            <a href="">about</a>
+            <a href="">contact</a>
+            <a href=""></a>
+        </div>
+        </nav>
+        
+</header>
+<div class="main">
+    <h1>welcome to the site</h1>
+    <button>add me</button>
+
+</div>
+<div class="boxes">
+    <div class="box">
+        <div class="box-img" ></div>
+        <p>shope me</p>
+    </div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+</div>
+<footer class="footer">
+<div class="footer-sec">
+    <p>@copyright</p>
+</div>
+</footer>
+</body>
+</html>
